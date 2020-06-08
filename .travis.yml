@@ -9,6 +9,5 @@ branches:
     - master
 install:
   - npm install
-  - npm run serve
 script:
   - npm run test:unit

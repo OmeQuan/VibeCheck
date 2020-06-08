@@ -1,4 +1,5 @@
 # VibeCheck
+School project for S-FUN4 
 
 ## Project setup
 ```
