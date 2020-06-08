@@ -1,4 +1,4 @@
-# vue-frontend
+# VibeCheck
 
 ## Project setup
 ```
