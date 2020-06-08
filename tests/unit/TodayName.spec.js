@@ -5,7 +5,7 @@ describe('TodayName', () => {
   test('If selected name false, do show date', () => {
     const wrapper = mount(TodayName, {
       propsData: {
-        name: false
+        name: true
       }
     })
     const span = wrapper.find('span')
