@@ -5,9 +5,15 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/About.vue"),
+    path: "/stats",
+    name: "stats",
+    component: () => import("../views/Stats/Index.vue"),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/personal",
+    name: "personal",
+    component: () => import("../views/Personal/Index.vue"),
     meta: { requiresAuth: true }
   },
   {
@@ -16,8 +22,8 @@ const routes = [
     component: () => import("../views/Login.vue")
   },
   {
-    path: "/day",
-    name: "day.index",
+    path: "/",
+    name: "day",
     component: () => import("../views/Day/Index"),
     meta: { requiresAuth: true }
   },
