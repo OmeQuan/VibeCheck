@@ -20,26 +20,22 @@
         @click.prevent="addDay"
         class="bg-cream text-dark uppercase font-semibold py-1 px-2 rounded mt-2"
         id="save-day"
-      >
-        save
-      </button>
+      >save</button>
     </div>
     <div v-if="done">
       <button
         @click.prevent="cancel"
         class="bg-cream text-dark uppercase font-semibold py-1 px-2 rounded mt-2"
         id="return"
-      >
-        return
-      </button>
+      >return</button>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Icon from "@/components/base/IconComponent";
-import DayService from "@/services/DayService";
+import Icon from '@/components/base/Icon'
+import DayService from '@/services/DayService'
 
 export default {
   components: {
@@ -48,35 +44,35 @@ export default {
   data() {
     return {
       woke_up_time: null,
-      message: "",
+      message: '',
       today: this.getToday(),
       done: false
-    };
+    }
   },
   methods: {
     cancel() {
-      this.$router.push("/day");
+      this.$router.push('/day')
     },
     addDay() {
       if (this.woke_up_time != null) {
-        DayService.newDay(this.woke_up_time);
-        this.done = true;
+        DayService.newDay(this.woke_up_time)
+        this.done = true
       } else {
-        this.message = "Please select a time!";
-        console.log("Bruh moment");
+        this.message = 'Please select a time!'
+        console.log('Bruh moment')
       }
     },
     getToday() {
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, "0");
-      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var yyyy = today.getFullYear();
+      var today = new Date()
+      var dd = String(today.getDate()).padStart(2, '0')
+      var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+      var yyyy = today.getFullYear()
 
-      today = yyyy + "-" + mm + "-" + dd;
-      console.log(today);
-      return today;
+      today = yyyy + '-' + mm + '-' + dd
+      console.log(today)
+      return today
     }
   },
   created() {}
-};
+}
 </script>

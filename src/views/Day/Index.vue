@@ -87,10 +87,11 @@
 
 <script>
 // @ is an alias to /src
-import Icon from '@/components/base/IconComponent'
-import NavBar from '@/components/base/NavBarComponent'
-import DayName from '@/components/base/TodayNameComponent'
-import Activity from '@/components/base/ActivityDisplayComponent'
+import Icon from '@/components/base/Icon'
+import NavBar from '@/components/base/NavBar'
+import DayName from '@/components/base/DayDisplay'
+import Activity from '@/components/base/ActivityDisplay'
+
 import DayService from '@/services/DayService'
 import ActivityService from '@/services/ActivityService'
 

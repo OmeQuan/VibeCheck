@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NavBar from '@/components/base/NavBarComponent'
+import NavBar from '@/components/base/NavBar'
 
 import DayService from '@/services/DayService'
 
