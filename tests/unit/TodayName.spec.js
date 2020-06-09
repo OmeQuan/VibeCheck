@@ -1,4 +1,4 @@
-import TodayName from "@/components/base/TodayName.vue";
+import TodayName from "@/components/base/DayDisplay.vue";
 import { mount } from '@vue/test-utils'
 
 describe('TodayName', () => {
