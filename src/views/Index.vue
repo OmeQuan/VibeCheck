@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4">
     <div class="mt-8 flex flex-col justify-between">
       <span class="text-4xl">Welcome to VibeCheck</span>
-      <span class="text-xl mt-8" v-on:click="Continue">
+      <span class="text-xl mt-8 cursor-pointer" v-on:click="Continue">
         Continue
         <Icon name="arrow-right" />
       </span>
