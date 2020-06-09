@@ -22,7 +22,7 @@ const routes = [
     component: () => import("../views/Login.vue")
   },
   {
-    path: "/",
+    path: "/day",
     name: "day",
     component: () => import("../views/Day/Index"),
     meta: { requiresAuth: true }
