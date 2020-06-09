@@ -128,9 +128,13 @@ export default {
       DayService.getToday()
         .then(response => {
           this.today = response.data
-          //console.log(response.data);
-          this.getActivities(response.data.id)
-          localStorage.setItem('today', response.data.id)
+          if (this.today.id == null) {
+            this.today = null
+          } else {
+            //console.log(this.today)
+            this.getActivities(response.data.id)
+            localStorage.setItem('today', response.data.id)
+          }
         })
         .catch(error => {
           console.log('ERROR: ' + error.message)
@@ -159,7 +163,6 @@ export default {
   },
   created() {
     this.getToday()
-    //this.getActivities();
   }
 }
 </script>
