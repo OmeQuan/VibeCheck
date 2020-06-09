@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4">
     <div class="mt-8 flex flex-col justify-center">
-      <Picker />
+      <Picker @updatePicker="test" />
     </div>
     <div class="flex flex-col text-center">
       <div class="flex flex-col">
@@ -27,6 +27,11 @@ export default {
     UsageChart,
     DayName,
     Picker
+  },
+  methods: {
+    test(active) {
+      console.log(active)
+    }
   }
 }
 </script>

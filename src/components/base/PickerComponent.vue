@@ -4,13 +4,13 @@
       <button
         type="button"
         class="px-4 rounded-full text-md font-bold border-dark border-2"
-        :class="{active: activeBtn === 'daily' }"
+        :class="{active: activeBtn === 'Weekly' }"
         @click.prevent="setPicker"
       >Weekly</button>
       <button
         type="button"
         class="px-4 rounded-full text-md font-bold border-dark border-2"
-        :class="{active: activeBtn === 'weekly' }"
+        :class="{active: activeBtn === 'Monthly' }"
         @click.prevent="setPicker"
       >Monthly</button>
     </div>
@@ -26,10 +26,10 @@ export default {
   },
   methods: {
     setPicker() {
-      if (this.activeBtn == 'daily') {
-        this.activeBtn = 'weekly'
+      if (this.activeBtn == 'Weekly') {
+        this.activeBtn = 'Monthly'
       } else {
-        this.activeBtn = 'daily'
+        this.activeBtn = 'Weekly'
       }
       this.updatePicker(this.activeBtn)
     },
