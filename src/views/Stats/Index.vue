@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import NavBar from '@/components/base/NavBarComponent'
-import Picker from '@/components/base/PickerComponent'
-import DayName from '@/components/base/TodayNameComponent'
+import NavBar from '@/components/base/NavBar'
+import Picker from '@/components/base/Picker'
+import DayName from '@/components/base/DayDisplay'
 
-import UsageChart from '@/components/Stats/UsageStatComponent'
+import UsageChart from '@/components/Stats/UsageStat'
 
 export default {
   components: {

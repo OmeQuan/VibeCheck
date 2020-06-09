@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import LoginForm from "@/components/Register/LoginFormComponent";
+import LoginForm from '@/components/Register/LoginForm'
 export default {
   components: {
     LoginForm
   }
-};
+}
 </script>
 
 <style></style>

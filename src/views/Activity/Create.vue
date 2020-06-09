@@ -49,11 +49,7 @@
 
     <!-- Add button -->
     <div class="fixed bottom-0 right-0 mr-4 mb-8">
-      <button
-        class="rounded-full bg-dark100"
-        @click.prevent="addActivity"
-        id="add-activity"
-      >
+      <button class="rounded-full bg-dark100" @click.prevent="addActivity" id="add-activity">
         <Icon
           name="check"
           :width="36"
@@ -68,8 +64,8 @@
 
 <script>
 // @ is an alias to /src
-import Icon from "@/components/base/IconComponent";
-import ActivityService from "@/services/ActivityService";
+import Icon from '@/components/base/Icon'
+import ActivityService from '@/services/ActivityService'
 
 export default {
   components: {
@@ -77,20 +73,20 @@ export default {
   },
   data() {
     return {
-      time_input: "00:00",
+      time_input: '00:00',
       typeId: null,
-      remark: "",
-      message: ""
-    };
+      remark: '',
+      message: ''
+    }
   },
   computed: {
     dayId() {
-      return localStorage.today;
+      return localStorage.today
     }
   },
   methods: {
     cancel() {
-      this.$router.push("/day");
+      this.$router.push('/day')
     },
     addActivity() {
       ActivityService.newActivity(
@@ -98,15 +94,15 @@ export default {
         this.calcDuration(),
         this.remark,
         this.dayId
-      );
-      this.$router.push("/day");
+      )
+      this.$router.push('/day')
     },
     calcDuration() {
-      var a = this.time_input.split(":");
-      var minutes = +a[0] * 60 + +a[1];
-      return minutes;
+      var a = this.time_input.split(':')
+      var minutes = +a[0] * 60 + +a[1]
+      return minutes
     }
   },
   created() {}
-};
+}
 </script>
