@@ -9,7 +9,7 @@ export default {
     return {
       chartData: {
         datasets: [],
-        labels: ['School', 'Chill', 'Work', 'Sport']
+        labels: []
       },
       chartOptions: {
         legend: {
@@ -23,6 +23,8 @@ export default {
   },
   created() {
     this.chartData.datasets = this.datasets
+
+    this.chartData.labels = this.labels
   },
   mounted() {
     this.renderChart(this.chartData, this.chartOptions)
@@ -44,6 +46,9 @@ export default {
           borderWidth: 1
         }
       ]
+    },
+    labels() {
+      return ['School', 'Chill', 'Work', 'Sport']
     }
   },
   methods: {}
