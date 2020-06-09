@@ -11,3 +11,10 @@ install:
   - npm install
 script:
   - npm run test:unit
+deploy:
+  provider: heroku
+  api_key: 7b0a7947-fa5f-481f-9e9c-0d4efea1494b
+  app: vibechecks
+  on: 
+    repo: OmeQuan/VibeCheck
+  skip_cleanup: true
