@@ -5,6 +5,12 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/",
+    name: "index",
+    component: () => import("../views/Index.vue"),
+    meta: { requiresAuth: true }
+  },
+  {
     path: "/stats",
     name: "stats",
     component: () => import("../views/Stats/Index.vue"),
@@ -22,7 +28,7 @@ const routes = [
     component: () => import("../views/Login.vue")
   },
   {
-    path: "/",
+    path: "/day",
     name: "day",
     component: () => import("../views/Day/Index"),
     meta: { requiresAuth: true }
