@@ -21,7 +21,7 @@
 export default {
   data() {
     return {
-      activeBtn: 'daily'
+      activeBtn: 'Monthly'
     }
   },
   methods: {
