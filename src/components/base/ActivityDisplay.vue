@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Icon from '@/components/base/IconComponent'
+import Icon from '@/components/base/Icon'
 
 import ActivityService from '@/services/ActivityService'
 

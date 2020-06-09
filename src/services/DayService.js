@@ -23,6 +23,9 @@ export default {
   getAllDays() {
     return apiClient.get("day");
   },
+  getAllDaysByUserId() {
+    return apiClient.get("day/user/" + user.id);
+  },
   newDay(time) {
     apiClient
       .post("day", {

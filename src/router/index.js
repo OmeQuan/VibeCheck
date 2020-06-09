@@ -6,13 +6,21 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: () => import("../views/Day/Index")
+    name: "index",
+    component: () => import("../views/Index.vue"),
+    meta: { requiresAuth: true }
   },
   {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/About.vue")
+    path: "/stats",
+    name: "stats",
+    component: () => import("../views/Stats/Index.vue"),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/personal",
+    name: "personal",
+    component: () => import("../views/Personal/Index.vue"),
+    meta: { requiresAuth: true }
   },
   {
     path: "/login",
@@ -21,33 +29,48 @@ const routes = [
   },
   {
     path: "/day",
-    name: "day.index",
-    component: () => import("../views/Day/Index")
+    name: "day",
+    component: () => import("../views/Day/Index"),
+    meta: { requiresAuth: true }
   },
   {
     path: "/day/create",
     name: "day.create",
-    component: () => import("../views/Day/Create")
+    component: () => import("../views/Day/Create"),
+    meta: { requiresAuth: true }
   },
   {
     path: "/day/sleep",
     name: "day.sleep",
-    component: () => import("../views/Day/Add")
+    component: () => import("../views/Day/Add"),
+    meta: { requiresAuth: true }
   },
   {
     path: "/day/edit",
     name: "day.edit",
-    component: () => import("../views/Day/Edit")
+    component: () => import("../views/Day/Edit"),
+    meta: { requiresAuth: true }
   },
   {
     path: "/activity/create",
     name: "activity.create",
-    component: () => import("../views/Activity/Create")
+    component: () => import("../views/Activity/Create"),
+    meta: { requiresAuth: true }
   }
 ];
 
 const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
   routes
 });
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem('user')
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn)
+    next('/login')
+  else next()
+})
 
 export default router;

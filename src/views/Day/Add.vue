@@ -21,26 +21,22 @@
           @click.prevent="editDay"
           class="bg-cream text-dark uppercase font-semibold py-1 px-4 rounded mt-2"
           id="save-day"
-        >
-          Save
-        </button>
+        >Save</button>
       </div>
       <div v-if="done">
         <button
           @click.prevent="cancel"
           class="bg-cream text-dark uppercase font-semibold py-1 px-2 rounded mt-2"
           id="return"
-        >
-          return
-        </button>
+        >return</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Icon from "@/components/base/IconComponent";
-import DayService from "@/services/DayService";
+import Icon from '@/components/base/Icon'
+import DayService from '@/services/DayService'
 
 export default {
   components: {
@@ -51,37 +47,37 @@ export default {
       today: null,
       done: false,
 
-      to_sleep_time: "",
-      message: ""
-    };
+      to_sleep_time: '',
+      message: ''
+    }
   },
   methods: {
     cancel() {
-      this.$router.push("/day");
+      this.$router.push('/day')
     },
     getToday() {
       DayService.getToday()
         .then(response => {
-          this.today = response.data;
-          this.wake_up_time = this.today.wake_up_time;
-          localStorage.setItem("today", response.data.id);
+          this.today = response.data
+          this.wake_up_time = this.today.wake_up_time
+          localStorage.setItem('today', response.data.id)
         })
         .catch(error => {
-          console.log("ERROR: " + error.message);
-        });
+          console.log('ERROR: ' + error.message)
+        })
     },
     editDay() {
-      console.log(this.to_sleep_time);
-      this.today.to_sleep_time = this.to_sleep_time;
-      DayService.editToday(this.today);
-      this.done = true;
+      console.log(this.to_sleep_time)
+      this.today.to_sleep_time = this.to_sleep_time
+      DayService.editToday(this.today)
+      this.done = true
     }
   },
   created() {
-    this.getToday();
+    this.getToday()
     //this.getActivities();
   }
-};
+}
 </script>
 
 <style></style>

@@ -32,9 +32,7 @@
           class="login-btn font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
           type="submit"
           id="submit"
-        >
-          Sign In
-        </button>
+        >Sign In</button>
       </div>
       <div class="form-group">
         <div v-if="message" class="text-red-500 text-md" role="alert">
@@ -47,65 +45,63 @@
 </template>
 
 <script>
-import User from "@/models/user";
+import User from '@/models/user'
 
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
-      user: new User("", ""),
-      message: "",
+      user: new User('', ''),
+      message: '',
       usernameMissing: false,
       passwordMissing: false
-    };
+    }
   },
   computed: {
     loggedIn() {
-      return this.$store.state.auth.status.loggedIn;
+      return this.$store.state.auth.status.loggedIn
     }
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push("/");
+      this.$router.push('/')
     }
   },
   methods: {
     handleLogin: function(e) {
-      if (this.user.username == "") {
-        this.usernameMissing = true;
+      if (this.user.username == '') {
+        this.usernameMissing = true
       }
       if (!this.user.password) {
-        this.passwordMissing = true;
+        this.passwordMissing = true
       }
 
       if (this.user.username && this.user.password) {
-        this.usernameMissing = false;
-        this.passwordMissing = false;
-        this.$store.dispatch("auth/login", this.user).then(
+        this.usernameMissing = false
+        this.passwordMissing = false
+        this.$store.dispatch('auth/login', this.user).then(
           () => {
-            this.$router.push("/day");
+            this.$router.push('/day')
           },
           error => {
-            if (error.response.data.title == "Unauthorized") {
-              this.message =
-                "Incorrect username or password, please try agian.";
+            if (error.response.data.title == 'Unauthorized') {
+              this.message = 'Incorrect username or password, please try agian.'
             } else {
-              this.message =
-                "Incorrect username or password, please try again.";
+              this.message = 'Incorrect username or password, please try again.'
               // remove later //
               console.log(
                 (error.response && error.response.data) ||
                   error.message ||
                   error.toString()
-              );
+              )
             }
           }
-        );
+        )
       }
-      e.preventDefault();
+      e.preventDefault()
     }
   }
-};
+}
 </script>
 
 <style lang="css" scoped>
