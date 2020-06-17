@@ -1,6 +1,6 @@
 describe('Day page', () => {
   beforeEach(() => {
-    cy.visit('/#/login')
+    cy.visit('/login')
     cy.get('input[id="username"]')
       .type('coen')
       .should('have.value', 'coen')
@@ -9,7 +9,7 @@ describe('Day page', () => {
       .should('have.value', 'coen1234')
 
     cy.contains('Sign In').click()
-    cy.url().should('include', '/#/day')
+    cy.url().should('include', '/day')
   })
 
   it.only('Create day if no available.', () => {
@@ -19,13 +19,13 @@ describe('Day page', () => {
 
       if (elem.text() == 'Start a new day') {
         cy.get('[id="create-day"]').click()
-        cy.url().should('include', '/#/day/create')
+        cy.url().should('include', '/day/create')
         cy.get('[id="woke_up_time"]')
           .type('09:00')
           .should('have.value', '09:00')
         cy.get('[id="save-day"]').click()
         cy.get('[id="return"]').click()
-        cy.url().should('include', '/#/day')
+        cy.url().should('include', '/day')
         cy.wait(1000)
         cy.contains('Your day so far')
       }

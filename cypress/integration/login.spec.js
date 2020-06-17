@@ -1,6 +1,6 @@
 describe('Login', () => {
   beforeEach(() => {
-    cy.visit('/#/login')
+    cy.visit('/login')
   })
 
   it('Login, no input', () => {
@@ -48,6 +48,6 @@ describe('Login', () => {
       .should('have.value', 'coen1234')
 
     cy.contains('Sign In').click()
-    cy.url().should('include', '/#/day')
+    cy.url().should('include', '/day')
   })
 })
